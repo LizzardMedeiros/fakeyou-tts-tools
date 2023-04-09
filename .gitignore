@@ -1,4 +1,5 @@
 /venv
 /wavs
 source.mp3
-transcript.txt
+list.txt
+__pycache__

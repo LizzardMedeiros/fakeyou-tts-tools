@@ -3,7 +3,7 @@ import subprocess
 import uuid
 
 output_dir = "wavs"
-ffmpeg_command = ["ffmpeg", "-i", "source.mp3", "-f", "segment", "-segment_time", "6", "-c", "copy", output_dir + "/%d.mp3"]
+ffmpeg_command = ["ffmpeg", "-i", "source.mp3", "-f", "segment", "-segment_time", "8", "-c", "copy", output_dir + "/%d.mp3"]
 subprocess.call(ffmpeg_command)
 
 for filename in os.listdir(output_dir):

@@ -1,8 +1,9 @@
 import os
 import speech_recognition as sr
+from natural import insere_pontuacao
 
 source_dir = "wavs"
-output_file = "transcript.txt"
+output_file = "list.txt"
 wav_files = []
 
 for filename in os.listdir(source_dir):
@@ -24,8 +25,9 @@ try:
       print("transcrevendo " + wav_file + "...")
       with sr.AudioFile(wav_file) as source:
         audio = r.record(source)
-        text = r.recognize_google(audio, language='pt-BR')
-        f.write(wav_file + "| " + text + "\n")
+        text = r.recognize_google(audio, show_all=True, language="pt-BR")
+        text = text["alternative"][0]["transcript"]
+        f.write(wav_file + "| " + insere_pontuacao(text) + "\n")
 
 except sr.UnknownValueError:
     print("Não foi possível reconhecer a fala.")

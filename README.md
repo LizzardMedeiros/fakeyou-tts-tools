@@ -10,6 +10,8 @@
 #### 2 **Instalação**
 
 - `pip install requirements.txt`
+- `python -m spacy download pt_core_news_sm`
+- `python -m textblob.download_corpora`
 
 #### 3 **Iniciação**
 
