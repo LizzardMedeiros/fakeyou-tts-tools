@@ -1,5 +1,5 @@
-/venv
-/wavs
+venv
+wavs
 source.mp3
 list.txt
 __pycache__

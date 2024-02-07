@@ -22,12 +22,14 @@ try:
   with open(output_file, "w", encoding="utf-8") as f:
     for wav_file in wav_files:
       # Use o método AudioFile() do objeto Recognizer para carregar um arquivo de áudio
-      print("transcrevendo " + wav_file + "...")
       with sr.AudioFile(wav_file) as source:
+        print(f"Extract speak from: {wav_file}...")
         audio = r.record(source)
         text = r.recognize_google(audio, show_all=True, language="pt-BR")
         text = text["alternative"][0]["transcript"]
-        f.write(wav_file + "| " + insere_pontuacao(text) + "\n")
+        text = insere_pontuacao(text)
+        print(text)
+        f.write(wav_file + "| " + text + "\n")
 
 except sr.UnknownValueError:
     print("Não foi possível reconhecer a fala.")
